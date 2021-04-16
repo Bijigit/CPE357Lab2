@@ -70,7 +70,9 @@ void addElement(char *input){
 void pushString(){
     char buffer[BUFFER_SIZE];
     printf("Input text\n");
-    scanf("%s", buffer);
+    //scanf("%s", buffer);
+    fflush(stdin);
+    fgets(buffer, BUFFER_SIZE, stdin);
     addElement(buffer);
     size++;
 }
@@ -78,10 +80,9 @@ void pushString(){
 void printList(){
     element *cur = head;
     while(cur != NULL){
-        printf("%s ", cur->text);
+        printf("%s", cur->text);
         cur = cur->next;
     }
-    printf("\n");
 }
 
 void deleteItem(){
